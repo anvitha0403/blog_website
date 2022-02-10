@@ -3,10 +3,16 @@ const app=express()
 const dotenv=require("dotenv")
 dotenv.config()
 const mongoose=require("mongoose")
-
+const userRoute=require('./routes/users')
 const authRoute=require("./routes/auth");
+
+
+
 app.use(express.json())
 app.use("/api/auth",authRoute)
+console.log("there")
+app.use("/api/users",userRoute)
+console.log("herer")
 
 
 mongoose.connect(process.env.DB_URI,
